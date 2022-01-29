@@ -1,6 +1,6 @@
-create databse mkp_web;
+create database mkp_web;
 
-create table product
+create table mkp_web.product
 (
 	id varchar(10) not null
 		primary key,
