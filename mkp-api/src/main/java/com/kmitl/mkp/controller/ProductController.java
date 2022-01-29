@@ -16,17 +16,17 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @PostMapping("product")
+    @PostMapping("admin/product")
     public ProductDto postProduct(@RequestBody ProductDto productDto){
         return productService.saveProduct(productDto);
     }
 
-    @GetMapping("products")
+    @GetMapping("admin/products")
     public List<ProductDto> getProducts(){
         return productService.findProducts();
     }
 
-    @GetMapping("product/{id}")
+    @GetMapping("admin/product/{id}")
     public ProductDto getProduct(@PathVariable String id){
         return productService.findProduct(id);
     }
