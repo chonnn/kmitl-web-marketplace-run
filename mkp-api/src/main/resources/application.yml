@@ -1,4 +1,8 @@
 
+server:
+  servlet:
+    context-path: /api
+
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/mkp_web?useSSL=true&serverTimezone=Asia/Bangkok

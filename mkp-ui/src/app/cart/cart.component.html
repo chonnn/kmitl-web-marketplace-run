@@ -1,0 +1,41 @@
+<h1>Cart</h1>
+<table class="table table-striped mb-2" *ngIf="products">
+  <thead>
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of products; index as i">
+    <td><a class="nav-link" routerLink="/admin/product-detail/{{ item.id }}">{{ item.id }}</a></td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.description }}</td>
+    <td style="text-align: right">{{ item.price }}</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td style="text-align: right"><strong>Total</strong></td>
+    <td style="text-align: right"><strong>{{sumPrice}}</strong></td>
+  </tr>
+  </tbody>
+</table>
+
+<form #heroForm="ngForm" (ngSubmit)="placeOrder()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" [(ngModel)]="orders.name" class="form-control" id="name" name="name" #id="ngModel">
+  </div>
+  <button type="submit" class="btn btn-primary" >Place Order</button>
+</form>
+
+<swal
+  #saveSuccessSwal
+  title="Order have been placed successfully! Thank you!"
+  text="Save"
+  icon="success"
+>
+</swal>

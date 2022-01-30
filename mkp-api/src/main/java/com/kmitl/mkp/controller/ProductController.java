@@ -10,24 +10,30 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("api")
+//@RequestMapping("api")
 @RequiredArgsConstructor
 public class ProductController {
 
     private final ProductService productService;
 
-    @PostMapping("admin/product")
-    public ProductDto postProduct(@RequestBody ProductDto productDto){
-        return productService.saveProduct(productDto);
-    }
-
-    @GetMapping("admin/products")
+    @GetMapping("products")
     public List<ProductDto> getProducts(){
         return productService.findProducts();
     }
 
+    @PostMapping("admin/product")
+    public ProductDto postAdminProduct(@RequestBody ProductDto productDto){
+        return productService.saveProduct(productDto);
+    }
+
+    @GetMapping("admin/products")
+    public List<ProductDto> getAdminProducts() throws InterruptedException {
+        Thread.sleep(3000);
+        return productService.findProducts();
+    }
+
     @GetMapping("admin/product/{id}")
-    public ProductDto getProduct(@PathVariable String id){
+    public ProductDto getAdminProduct(@PathVariable String id){
         return productService.findProduct(id);
     }
 }
