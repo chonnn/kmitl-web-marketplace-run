@@ -1,0 +1,12 @@
+version: '3.4'
+services:
+  nginx-home:
+    image: nginx:1.17.4
+    restart: always
+    container_name: nginx
+    ports:
+      - 80:80
+    volumes:                     
+      - ./config:/etc/nginx/conf.d
+      - ./web:/var/www/html/web
+    # network_mode: host

@@ -17,7 +17,8 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("products")
-    public List<ProductDto> getProducts(){
+    public List<ProductDto> getProducts() throws InterruptedException {
+        Thread.sleep(60000);
         return productService.findProducts();
     }
 
